@@ -20,6 +20,7 @@ async function checkWeather(city) {
 
   try {
     if (weather_data.cod === "404") {
+      weather_img.src = "404.png";
       alert("Location not found");
       return;
     }
@@ -45,9 +46,10 @@ async function checkWeather(city) {
       case "Snow":
         weather_img.src = "snow.png";
         break;
-    }
-  } catch (error) {
-    console.log("Error fetching weather data:", error);
+      }
+    } catch (error) {
+      weather_img.src = "404.png";
+      console.log("Error fetching weather data:", error);
   }
 }
 
